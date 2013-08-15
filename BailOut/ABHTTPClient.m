@@ -62,6 +62,7 @@
                                                             timeoutInterval:ABHTTP_CLIENT_DEFAULT_TIMEOUT];
     [request setHTTPMethod:verb];
     [request setHTTPShouldUsePipelining:YES];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     if (![verb isEqualToString:ABHTTP_METHOD_GET] && data) { // set request body for non GET requests
         NSError *parseError;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
@@ -69,7 +70,7 @@
                                                              error:&parseError];
         if (parseError) {
             if (complete) {
-                complete(nil, 0, parseError);
+                complete(nil, ABHTTPRequestParseError, parseError);
             }
         } else {
             [request setHTTPBody:jsonData];
@@ -97,7 +98,7 @@
                                                             options:NSJSONReadingMutableContainers
                                                               error:&parseError];
             if (parseError) {
-                copyCompletion(nil, statusCode, parseError);
+                copyCompletion(nil, ABHTTPResponseParseError, parseError);
             } else {
                 copyCompletion(jsonObject, statusCode, nil);
             }

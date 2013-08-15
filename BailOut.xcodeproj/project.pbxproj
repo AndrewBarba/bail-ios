@@ -32,6 +32,8 @@
 		B8D29C6417BD34FE0084C1E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C6317BD34FE0084C1E6 /* Security.framework */; };
 		B8D29C6917BD447F0084C1E6 /* ABHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C6817BD447F0084C1E6 /* ABHTTPClient.m */; };
 		B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C6C17BD50450084C1E6 /* NSString+BO.m */; };
+		B8D29C7117BD57AB0084C1E6 /* BOAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C7017BD57AB0084C1E6 /* BOAPI.m */; };
+		B8D29C7717BD5C470084C1E6 /* BOAPIRootService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C7617BD5C470084C1E6 /* BOAPIRootService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,10 @@
 		B8D29C6817BD447F0084C1E6 /* ABHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHTTPClient.m; sourceTree = "<group>"; };
 		B8D29C6B17BD50450084C1E6 /* NSString+BO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BO.h"; sourceTree = "<group>"; };
 		B8D29C6C17BD50450084C1E6 /* NSString+BO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BO.m"; sourceTree = "<group>"; };
+		B8D29C6F17BD57AB0084C1E6 /* BOAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOAPI.h; sourceTree = "<group>"; };
+		B8D29C7017BD57AB0084C1E6 /* BOAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOAPI.m; sourceTree = "<group>"; };
+		B8D29C7517BD5C470084C1E6 /* BOAPIRootService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOAPIRootService.h; sourceTree = "<group>"; };
+		B8D29C7617BD5C470084C1E6 /* BOAPIRootService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOAPIRootService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,7 +326,8 @@
 		B8D29C6517BD44620084C1E6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B8D29C6617BD446A0084C1E6 /* HTTP Client */,
+				B8D29C7417BD5C1E0084C1E6 /* Root Service */,
+				B8D29C7317BD5C100084C1E6 /* Clients */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -341,6 +348,33 @@
 				B8D29C6C17BD50450084C1E6 /* NSString+BO.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		B8D29C7217BD5BFC0084C1E6 /* BOAPI Client */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C6F17BD57AB0084C1E6 /* BOAPI.h */,
+				B8D29C7017BD57AB0084C1E6 /* BOAPI.m */,
+			);
+			name = "BOAPI Client";
+			sourceTree = "<group>";
+		};
+		B8D29C7317BD5C100084C1E6 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C7217BD5BFC0084C1E6 /* BOAPI Client */,
+				B8D29C6617BD446A0084C1E6 /* HTTP Client */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		B8D29C7417BD5C1E0084C1E6 /* Root Service */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C7517BD5C470084C1E6 /* BOAPIRootService.h */,
+				B8D29C7617BD5C470084C1E6 /* BOAPIRootService.m */,
+			);
+			name = "Root Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,7 +490,9 @@
 				B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */,
 				B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */,
 				B8D29C5717BD2DAE0084C1E6 /* BORootNavigationController.m in Sources */,
+				B8D29C7117BD57AB0084C1E6 /* BOAPI.m in Sources */,
 				B8D29C6917BD447F0084C1E6 /* ABHTTPClient.m in Sources */,
+				B8D29C7717BD5C470084C1E6 /* BOAPIRootService.m in Sources */,
 				B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */,
 				B8D29C6217BD34660084C1E6 /* NSKeychainItemWrapper.m in Sources */,
 			);

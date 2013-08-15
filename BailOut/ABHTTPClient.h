@@ -12,6 +12,9 @@
  * Enum of HTTP 1.1 response status codes.
  */
 typedef enum {
+    ABHTTPRequestParseError = 601, // custom code for indicating request json parse error
+    ABHTTPResponseParseError = 602, // custom code for indicating response json parse error
+    
     ABHTTPInformationalContinue = 100,
     ABHTTPInformationalSwitchingProtocols = 101,
     

@@ -8,7 +8,7 @@
 
 #import "BORootNavigationController.h"
 #import "BOKeychainService.h"
-#import "ABHTTPClient.h"
+#import "BOAPIRootService.h"
 
 @interface BORootNavigationController ()
 
@@ -28,7 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// view loaded
+	
+    [[BOKeychainService sharedInstance] setValue:@"12345" forKey:@"hello"];
+    NSString *val = [[BOKeychainService sharedInstance] valueForKey:@"hello"];
+    NSLog(@"Keychain: %@",val);
 }
 
 - (void)didReceiveMemoryWarning

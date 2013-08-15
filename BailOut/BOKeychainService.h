@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define BO_AUTH_KEY @"bo_auth"
+
 @interface BOKeychainService : NSObject
 
 /**
