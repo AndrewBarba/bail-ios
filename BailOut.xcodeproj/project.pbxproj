@@ -23,6 +23,15 @@
 		B8D29C4017BD2A300084C1E6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */; };
 		B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C4417BD2AAB0084C1E6 /* BOTrackingService.m */; };
 		B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C4F17BD2D250084C1E6 /* BOViewController.m */; };
+		B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C5217BD2D690084C1E6 /* BONavigationController.m */; };
+		B8D29C5717BD2DAE0084C1E6 /* BORootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C5617BD2DAE0084C1E6 /* BORootNavigationController.m */; };
+		B8D29C5917BD2FA60084C1E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C5817BD2FA60084C1E6 /* CoreData.framework */; };
+		B8D29C5B17BD2FB00084C1E6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C5A17BD2FB00084C1E6 /* SystemConfiguration.framework */; };
+		B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C5E17BD30D10084C1E6 /* BOKeychainService.m */; };
+		B8D29C6217BD34660084C1E6 /* NSKeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C6117BD34660084C1E6 /* NSKeychainItemWrapper.m */; };
+		B8D29C6417BD34FE0084C1E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C6317BD34FE0084C1E6 /* Security.framework */; };
+		B8D29C6917BD447F0084C1E6 /* ABHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C6817BD447F0084C1E6 /* ABHTTPClient.m */; };
+		B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C6C17BD50450084C1E6 /* NSString+BO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,21 @@
 		B8D29C4417BD2AAB0084C1E6 /* BOTrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTrackingService.m; sourceTree = "<group>"; };
 		B8D29C4E17BD2D250084C1E6 /* BOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOViewController.h; sourceTree = "<group>"; };
 		B8D29C4F17BD2D250084C1E6 /* BOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOViewController.m; sourceTree = "<group>"; };
+		B8D29C5117BD2D690084C1E6 /* BONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONavigationController.h; sourceTree = "<group>"; };
+		B8D29C5217BD2D690084C1E6 /* BONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONavigationController.m; sourceTree = "<group>"; };
+		B8D29C5517BD2DAE0084C1E6 /* BORootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BORootNavigationController.h; sourceTree = "<group>"; };
+		B8D29C5617BD2DAE0084C1E6 /* BORootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BORootNavigationController.m; sourceTree = "<group>"; };
+		B8D29C5817BD2FA60084C1E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B8D29C5A17BD2FB00084C1E6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B8D29C5D17BD30D10084C1E6 /* BOKeychainService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOKeychainService.h; sourceTree = "<group>"; };
+		B8D29C5E17BD30D10084C1E6 /* BOKeychainService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOKeychainService.m; sourceTree = "<group>"; };
+		B8D29C6017BD34660084C1E6 /* NSKeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSKeychainItemWrapper.h; sourceTree = "<group>"; };
+		B8D29C6117BD34660084C1E6 /* NSKeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSKeychainItemWrapper.m; sourceTree = "<group>"; };
+		B8D29C6317BD34FE0084C1E6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B8D29C6717BD447F0084C1E6 /* ABHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABHTTPClient.h; sourceTree = "<group>"; };
+		B8D29C6817BD447F0084C1E6 /* ABHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHTTPClient.m; sourceTree = "<group>"; };
+		B8D29C6B17BD50450084C1E6 /* NSString+BO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BO.h"; sourceTree = "<group>"; };
+		B8D29C6C17BD50450084C1E6 /* NSString+BO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BO.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D29C6417BD34FE0084C1E6 /* Security.framework in Frameworks */,
+				B8D29C5B17BD2FB00084C1E6 /* SystemConfiguration.framework in Frameworks */,
+				B8D29C5917BD2FA60084C1E6 /* CoreData.framework in Frameworks */,
 				B8D29C4017BD2A300084C1E6 /* libGoogleAnalytics.a in Frameworks */,
 				B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */,
 				B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */,
@@ -113,6 +140,9 @@
 		B8D29BFB17BD24A60084C1E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D29C6317BD34FE0084C1E6 /* Security.framework */,
+				B8D29C5A17BD2FB00084C1E6 /* SystemConfiguration.framework */,
+				B8D29C5817BD2FA60084C1E6 /* CoreData.framework */,
 				B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */,
 				B8D29BFC17BD24A60084C1E6 /* Foundation.framework */,
 				B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */,
@@ -167,6 +197,7 @@
 				B8D29C3317BD293C0084C1E6 /* Delegate */,
 				B8D29C4117BD2A760084C1E6 /* Services */,
 				B8D29C3417BD29520084C1E6 /* UI */,
+				B8D29C6A17BD502D0084C1E6 /* Categories */,
 				B8D29C3817BD29A50084C1E6 /* ThirdParty */,
 			);
 			name = source;
@@ -203,6 +234,7 @@
 		B8D29C3617BD29700084C1E6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B8D29C5417BD2D940084C1E6 /* Root */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +270,8 @@
 		B8D29C4117BD2A760084C1E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B8D29C6517BD44620084C1E6 /* API */,
+				B8D29C5C17BD30A60084C1E6 /* Keychain */,
 				B8D29C4217BD2A840084C1E6 /* Tracking */,
 			);
 			name = Services;
@@ -257,8 +291,56 @@
 			children = (
 				B8D29C4E17BD2D250084C1E6 /* BOViewController.h */,
 				B8D29C4F17BD2D250084C1E6 /* BOViewController.m */,
+				B8D29C5117BD2D690084C1E6 /* BONavigationController.h */,
+				B8D29C5217BD2D690084C1E6 /* BONavigationController.m */,
 			);
 			name = "Base Controllers";
+			sourceTree = "<group>";
+		};
+		B8D29C5417BD2D940084C1E6 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C5517BD2DAE0084C1E6 /* BORootNavigationController.h */,
+				B8D29C5617BD2DAE0084C1E6 /* BORootNavigationController.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		B8D29C5C17BD30A60084C1E6 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C5D17BD30D10084C1E6 /* BOKeychainService.h */,
+				B8D29C5E17BD30D10084C1E6 /* BOKeychainService.m */,
+				B8D29C6017BD34660084C1E6 /* NSKeychainItemWrapper.h */,
+				B8D29C6117BD34660084C1E6 /* NSKeychainItemWrapper.m */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		B8D29C6517BD44620084C1E6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C6617BD446A0084C1E6 /* HTTP Client */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		B8D29C6617BD446A0084C1E6 /* HTTP Client */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C6717BD447F0084C1E6 /* ABHTTPClient.h */,
+				B8D29C6817BD447F0084C1E6 /* ABHTTPClient.m */,
+			);
+			name = "HTTP Client";
+			sourceTree = "<group>";
+		};
+		B8D29C6A17BD502D0084C1E6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C6B17BD50450084C1E6 /* NSString+BO.h */,
+				B8D29C6C17BD50450084C1E6 /* NSString+BO.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,8 +451,14 @@
 			files = (
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
 				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
+				B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
+				B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */,
+				B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */,
+				B8D29C5717BD2DAE0084C1E6 /* BORootNavigationController.m in Sources */,
+				B8D29C6917BD447F0084C1E6 /* ABHTTPClient.m in Sources */,
 				B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */,
+				B8D29C6217BD34660084C1E6 /* NSKeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,11 +585,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BailOut/BailOut-Prefix.pch";
 				INFOPLIST_FILE = "BailOut/BailOut-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -515,11 +605,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BailOut/BailOut-Prefix.pch";
 				INFOPLIST_FILE = "BailOut/BailOut-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
