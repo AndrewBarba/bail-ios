@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        // do setup here
+#warning Need to set up tracking service
     }
     return self;
 }
