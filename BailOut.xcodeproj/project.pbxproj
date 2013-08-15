@@ -21,6 +21,7 @@
 		B8D29C1E17BD24A70084C1E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C0017BD24A60084C1E6 /* UIKit.framework */; };
 		B8D29C2617BD24A70084C1E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8D29C2417BD24A70084C1E6 /* InfoPlist.strings */; };
 		B8D29C2817BD24A70084C1E6 /* BailOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C2717BD24A70084C1E6 /* BailOutTests.m */; };
+		B8D29C4017BD2A300084C1E6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,13 @@
 		B8D29C2317BD24A70084C1E6 /* BailOutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BailOutTests-Info.plist"; sourceTree = "<group>"; };
 		B8D29C2517BD24A70084C1E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B8D29C2717BD24A70084C1E6 /* BailOutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BailOutTests.m; sourceTree = "<group>"; };
+		B8D29C3217BD29180084C1E6 /* BOConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOConstants.h; sourceTree = "<group>"; };
+		B8D29C3A17BD2A1B0084C1E6 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GA/GAI.h; sourceTree = "<group>"; };
+		B8D29C3B17BD2A1B0084C1E6 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GA/GAITrackedViewController.h; sourceTree = "<group>"; };
+		B8D29C3C17BD2A1B0084C1E6 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GA/GAITracker.h; sourceTree = "<group>"; };
+		B8D29C3D17BD2A1B0084C1E6 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = GA/GAITransaction.h; sourceTree = "<group>"; };
+		B8D29C3E17BD2A1B0084C1E6 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = GA/GAITransactionItem.h; sourceTree = "<group>"; };
+		B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = BailOut/GA/libGoogleAnalytics.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D29C4017BD2A300084C1E6 /* libGoogleAnalytics.a in Frameworks */,
 				B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */,
 				B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */,
 				B8D29BFD17BD24A60084C1E6 /* Foundation.framework in Frameworks */,
@@ -101,6 +110,7 @@
 		B8D29BFB17BD24A60084C1E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */,
 				B8D29BFC17BD24A60084C1E6 /* Foundation.framework */,
 				B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */,
 				B8D29C0017BD24A60084C1E6 /* UIKit.framework */,
@@ -112,12 +122,7 @@
 		B8D29C0217BD24A60084C1E6 /* BailOut */ = {
 			isa = PBXGroup;
 			children = (
-				B8D29C0B17BD24A60084C1E6 /* BOAppDelegate.h */,
-				B8D29C0C17BD24A70084C1E6 /* BOAppDelegate.m */,
-				B8D29C0E17BD24A70084C1E6 /* Main.storyboard */,
-				B8D29C1117BD24A70084C1E6 /* BOViewController.h */,
-				B8D29C1217BD24A70084C1E6 /* BOViewController.m */,
-				B8D29C1417BD24A70084C1E6 /* Images.xcassets */,
+				B8D29C3117BD28E70084C1E6 /* source */,
 				B8D29C0317BD24A60084C1E6 /* Supporting Files */,
 			);
 			path = BailOut;
@@ -150,6 +155,81 @@
 				B8D29C2417BD24A70084C1E6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8D29C3117BD28E70084C1E6 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C3817BD29A50084C1E6 /* ThirdParty */,
+				B8D29C3217BD29180084C1E6 /* BOConstants.h */,
+				B8D29C3317BD293C0084C1E6 /* Delegate */,
+				B8D29C3417BD29520084C1E6 /* UI */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+		B8D29C3317BD293C0084C1E6 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C0B17BD24A60084C1E6 /* BOAppDelegate.h */,
+				B8D29C0C17BD24A70084C1E6 /* BOAppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		B8D29C3417BD29520084C1E6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C3617BD29700084C1E6 /* Controllers */,
+				B8D29C3517BD29610084C1E6 /* Storyboards */,
+				B8D29C3717BD29810084C1E6 /* Images */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		B8D29C3517BD29610084C1E6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C0E17BD24A70084C1E6 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B8D29C3617BD29700084C1E6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C1117BD24A70084C1E6 /* BOViewController.h */,
+				B8D29C1217BD24A70084C1E6 /* BOViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B8D29C3717BD29810084C1E6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C1417BD24A70084C1E6 /* Images.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B8D29C3817BD29A50084C1E6 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C3917BD2A040084C1E6 /* GA */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		B8D29C3917BD2A040084C1E6 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C3A17BD2A1B0084C1E6 /* GAI.h */,
+				B8D29C3B17BD2A1B0084C1E6 /* GAITrackedViewController.h */,
+				B8D29C3C17BD2A1B0084C1E6 /* GAITracker.h */,
+				B8D29C3D17BD2A1B0084C1E6 /* GAITransaction.h */,
+				B8D29C3E17BD2A1B0084C1E6 /* GAITransactionItem.h */,
+			);
+			name = GA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +467,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BailOut/BailOut-Prefix.pch";
 				INFOPLIST_FILE = "BailOut/BailOut-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,6 +485,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BailOut/BailOut-Prefix.pch";
 				INFOPLIST_FILE = "BailOut/BailOut-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
