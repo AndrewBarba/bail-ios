@@ -22,6 +22,7 @@
 		B8D29C2817BD24A70084C1E6 /* BailOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C2717BD24A70084C1E6 /* BailOutTests.m */; };
 		B8D29C4017BD2A300084C1E6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */; };
 		B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C4417BD2AAB0084C1E6 /* BOTrackingService.m */; };
+		B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D29C4F17BD2D250084C1E6 /* BOViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		B8D29C3F17BD2A300084C1E6 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = BailOut/GA/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		B8D29C4317BD2AAB0084C1E6 /* BOTrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOTrackingService.h; sourceTree = "<group>"; };
 		B8D29C4417BD2AAB0084C1E6 /* BOTrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTrackingService.m; sourceTree = "<group>"; };
+		B8D29C4E17BD2D250084C1E6 /* BOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOViewController.h; sourceTree = "<group>"; };
+		B8D29C4F17BD2D250084C1E6 /* BOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,7 @@
 		B8D29C3417BD29520084C1E6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B8D29C4D17BD2D150084C1E6 /* Base Controllers */,
 				B8D29C3617BD29700084C1E6 /* Controllers */,
 				B8D29C3517BD29610084C1E6 /* Storyboards */,
 				B8D29C3717BD29810084C1E6 /* Images */,
@@ -246,6 +250,15 @@
 				B8D29C4417BD2AAB0084C1E6 /* BOTrackingService.m */,
 			);
 			name = Tracking;
+			sourceTree = "<group>";
+		};
+		B8D29C4D17BD2D150084C1E6 /* Base Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8D29C4E17BD2D250084C1E6 /* BOViewController.h */,
+				B8D29C4F17BD2D250084C1E6 /* BOViewController.m */,
+			);
+			name = "Base Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
+				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
 				B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */,
 			);
