@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */ = {isa = PBXBuildFile; fileRef = B804204D17BDDE4F0048A09E /* BOAPIBailService.m */; };
+		B804205617BDE01F0048A09E /* ABDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205517BDE01F0048A09E /* ABDispatch.m */; };
+		B804205917BDE4860048A09E /* BOAPIUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205817BDE4860048A09E /* BOAPIUserService.m */; };
 		B8D29BFD17BD24A60084C1E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFC17BD24A60084C1E6 /* Foundation.framework */; };
 		B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */; };
 		B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C0017BD24A60084C1E6 /* UIKit.framework */; };
@@ -47,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B804204C17BDDE4F0048A09E /* BOAPIBailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOAPIBailService.h; sourceTree = "<group>"; };
+		B804204D17BDDE4F0048A09E /* BOAPIBailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOAPIBailService.m; sourceTree = "<group>"; };
+		B804205417BDE01F0048A09E /* ABDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDispatch.h; sourceTree = "<group>"; };
+		B804205517BDE01F0048A09E /* ABDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDispatch.m; sourceTree = "<group>"; };
+		B804205717BDE4860048A09E /* BOAPIUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOAPIUserService.h; sourceTree = "<group>"; };
+		B804205817BDE4860048A09E /* BOAPIUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOAPIUserService.m; sourceTree = "<group>"; };
 		B8D29BF917BD24A60084C1E6 /* BailOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BailOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFC17BD24A60084C1E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +133,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B804204A17BDDE230048A09E /* User Service */ = {
+			isa = PBXGroup;
+			children = (
+				B804205717BDE4860048A09E /* BOAPIUserService.h */,
+				B804205817BDE4860048A09E /* BOAPIUserService.m */,
+			);
+			name = "User Service";
+			sourceTree = "<group>";
+		};
+		B804204B17BDDE320048A09E /* Bail Service */ = {
+			isa = PBXGroup;
+			children = (
+				B804204C17BDDE4F0048A09E /* BOAPIBailService.h */,
+				B804204D17BDDE4F0048A09E /* BOAPIBailService.m */,
+			);
+			name = "Bail Service";
+			sourceTree = "<group>";
+		};
+		B804204F17BDDF680048A09E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B804205017BDDFB80048A09E /* Concurrency */,
+				B8D29C6617BD446A0084C1E6 /* HTTP Client */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		B804205017BDDFB80048A09E /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				B804205417BDE01F0048A09E /* ABDispatch.h */,
+				B804205517BDE01F0048A09E /* ABDispatch.m */,
+			);
+			name = Concurrency;
+			sourceTree = "<group>";
+		};
 		B8D29BF017BD24A60084C1E6 = {
 			isa = PBXGroup;
 			children = (
@@ -200,11 +245,12 @@
 			isa = PBXGroup;
 			children = (
 				B8D29C3217BD29180084C1E6 /* BOConstants.h */,
+				B8D29C6A17BD502D0084C1E6 /* Categories */,
 				B8D29C3317BD293C0084C1E6 /* Delegate */,
 				B8D29C4117BD2A760084C1E6 /* Services */,
-				B8D29C3417BD29520084C1E6 /* UI */,
-				B8D29C6A17BD502D0084C1E6 /* Categories */,
 				B8D29C3817BD29A50084C1E6 /* ThirdParty */,
+				B8D29C3417BD29520084C1E6 /* UI */,
+				B804204F17BDDF680048A09E /* Utilities */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -326,8 +372,10 @@
 		B8D29C6517BD44620084C1E6 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B804204B17BDDE320048A09E /* Bail Service */,
+				B804204A17BDDE230048A09E /* User Service */,
 				B8D29C7417BD5C1E0084C1E6 /* Root Service */,
-				B8D29C7317BD5C100084C1E6 /* Clients */,
+				B8D29C7217BD5BFC0084C1E6 /* BOAPI Client */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -357,15 +405,6 @@
 				B8D29C7017BD57AB0084C1E6 /* BOAPI.m */,
 			);
 			name = "BOAPI Client";
-			sourceTree = "<group>";
-		};
-		B8D29C7317BD5C100084C1E6 /* Clients */ = {
-			isa = PBXGroup;
-			children = (
-				B8D29C7217BD5BFC0084C1E6 /* BOAPI Client */,
-				B8D29C6617BD446A0084C1E6 /* HTTP Client */,
-			);
-			name = Clients;
 			sourceTree = "<group>";
 		};
 		B8D29C7417BD5C1E0084C1E6 /* Root Service */ = {
@@ -483,14 +522,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B804205617BDE01F0048A09E /* ABDispatch.m in Sources */,
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
 				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
 				B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */,
+				B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
 				B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */,
 				B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */,
 				B8D29C5717BD2DAE0084C1E6 /* BORootNavigationController.m in Sources */,
 				B8D29C7117BD57AB0084C1E6 /* BOAPI.m in Sources */,
+				B804205917BDE4860048A09E /* BOAPIUserService.m in Sources */,
 				B8D29C6917BD447F0084C1E6 /* ABHTTPClient.m in Sources */,
 				B8D29C7717BD5C470084C1E6 /* BOAPIRootService.m in Sources */,
 				B8D29C4517BD2AAB0084C1E6 /* BOTrackingService.m in Sources */,

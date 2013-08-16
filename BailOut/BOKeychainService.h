@@ -13,14 +13,30 @@
 @interface BOKeychainService : NSObject
 
 /**
- * Stores a value in the keychain
+ * Stores phone number and password
  */
-- (void)setValue:(id)value forKey:(NSString *)key;
+- (void)setPhoneNumber:(NSString *)phoneNumber
+          forAuthToken:(NSString *)authToken;
 
 /**
- * Retrieves a value from the keychain
+ * Retrieves phone number from keychain
  */
-- (id)valueForKey:(NSString *)key;
+- (NSString *)phoneNumber;
+
+/**
+ * Retrieves auth token from keychain
+ */
+- (NSString *)authToken;
+
+/**
+ * Boolean indicating whether a current user has an auth token
+ */
+- (BOOL)hasAuth;
+
+/**
+ * Clear/Resets all data in the keychain
+ */
+- (void)resetKeychain;
 
 /**
  * Shared instance

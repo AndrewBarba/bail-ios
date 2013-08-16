@@ -38,8 +38,8 @@
     NSMutableString *path = [NSMutableString stringWithFormat:@"%@/%@", BO_API_ROOT, endpoint];
     
     // append auth if we have it
-    NSString *auth = [[BOKeychainService sharedInstance] valueForKey:BO_AUTH_KEY];
-    if (auth && auth.length) {
+    NSString *auth = [[BOKeychainService sharedInstance] authToken];
+    if (auth) {
         [path appendFormat:@"?auth=%@",auth];
     }
     

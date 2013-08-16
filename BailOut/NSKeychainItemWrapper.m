@@ -302,8 +302,7 @@
     {
         // No previous item found; add the new one.
         result = SecItemAdd((__bridge CFDictionaryRef)[self dictionaryToSecItemFormat:keychainItemData], NULL);
-#warning Need to figure out why this is returning an error yet still saving data
-//        NSAssert( result == noErr, @"Couldn't add the Keychain Item." );
+        NSAssert( result == noErr, @"Couldn't add the Keychain Item." );
     }
 	
 	if(attributes) CFRelease(attributes);

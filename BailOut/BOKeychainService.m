@@ -19,15 +19,42 @@
 
 @implementation BOKeychainService
 
-- (void)setValue:(id)value forKey:(NSString *)key
+#pragma mark - Setter
+
+- (void)setPhoneNumber:(NSString *)phoneNumber
+          forAuthToken:(NSString *)authToken
 {
-    [_keychainItem setObject:value forKey:key];
+    [_keychainItem setObject:phoneNumber forKey:(__bridge id)kSecAttrAccount];
+    [_keychainItem setObject:authToken forKey:(__bridge id)kSecValueData];
 }
 
-- (id)valueForKey:(NSString *)key
+#pragma mark - Getter
+
+- (NSString *)phoneNumber
 {
-    return [_keychainItem objectForKey:key];
+    NSString *phone = [_keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+    return (phone && phone.length) ? phone : nil;
 }
+
+- (NSString *)authToken
+{
+    NSString *auth = [_keychainItem objectForKey:(__bridge id)kSecValueData];
+    return (auth && auth.length) ? auth : nil;
+}
+
+- (BOOL)hasAuth
+{
+    return [self phoneNumber] && [self authToken];
+}
+
+#pragma mark - Reset
+
+- (void)resetKeychain
+{
+    [_keychainItem resetKeychainItem];
+}
+
+#pragma mark - Initialization
 
 /**
  * Private initializer

@@ -28,10 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [[BOKeychainService sharedInstance] setValue:@"12345" forKey:@"hello"];
-    NSString *val = [[BOKeychainService sharedInstance] valueForKey:@"hello"];
-    NSLog(@"Keychain: %@",val);
+    
+    [[BOAPIRootService sharedInstance] fetchRoot:^(NSDictionary *dict, NSError *error){
+        NSLog(@"%@",dict);
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning

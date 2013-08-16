@@ -98,12 +98,18 @@
                                                             options:NSJSONReadingMutableContainers
                                                               error:&parseError];
             if (parseError) {
-                copyCompletion(nil, ABHTTPResponseParseError, parseError);
+                ABDispatchMain(^{
+                    copyCompletion(nil, ABHTTPResponseParseError, parseError);
+                });
             } else {
-                copyCompletion(jsonObject, statusCode, nil);
+                ABDispatchMain(^{
+                    copyCompletion(jsonObject, statusCode, nil);
+                });
             }
         }
-        copyCompletion = nil;
+        ABDispatchMain(^{
+            copyCompletion = nil;
+        });
     }];
 }
 

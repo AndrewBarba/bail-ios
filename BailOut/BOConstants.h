@@ -9,5 +9,6 @@
 #ifndef BailOut_BOConstants_h
 #define BailOut_BOConstants_h
 
+#define GOOGLE_ANALYTICS_ID @"UA-43237008-1"
 
 #endif

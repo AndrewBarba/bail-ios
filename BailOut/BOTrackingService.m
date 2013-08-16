@@ -9,6 +9,12 @@
 #import "BOTrackingService.h"
 #import "GA/GAI.h"
 
+@interface BOTrackingService() {
+    GAI *_gaiTracker;
+}
+
+@end
+
 @implementation BOTrackingService
 
 /**
@@ -18,7 +24,9 @@
 {
     self = [super init];
     if (self) {
-#warning Need to set up tracking service
+        [GAI sharedInstance].trackUncaughtExceptions = YES;
+        [GAI sharedInstance].dispatchInterval = 10;
+        _gaiTracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_ID];
     }
     return self;
 }

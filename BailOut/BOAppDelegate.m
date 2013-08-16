@@ -7,13 +7,22 @@
 //
 
 #import "BOAppDelegate.h"
+#import "BOTrackingService.h"
 
 @implementation BOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [self _loadServices];
+    
     return YES;
+}
+
+- (void)_loadServices
+{
+    [BOTrackingService sharedTracker];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
