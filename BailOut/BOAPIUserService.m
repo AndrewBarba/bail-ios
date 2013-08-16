@@ -66,10 +66,24 @@
                           [[BOKeychainService sharedInstance] setPhoneNumber:phoneNumber forAuthToken:authToken];
                           
                           if (complete) complete(YES, nil);
+                          
+                          // Post notification
+                          [[NSNotificationCenter defaultCenter] postNotificationName:BOSignInNotificationKey object:nil];
                       } else {
                           if (complete) complete(NO, error);
                       }
                   }];
+}
+
+#pragma mark - Sign Out
+
+- (void)signOut:(BOAPIBooleanBlock)complete
+{
+    [[BOKeychainService sharedInstance] resetKeychain];
+    if (complete) {
+        complete(YES, nil);
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:BOSignOutNotificationKey object:nil];
 }
 
 #pragma mark - Initialization

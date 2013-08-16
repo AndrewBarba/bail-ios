@@ -12,6 +12,8 @@
 		B804205917BDE4860048A09E /* BOAPIUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205817BDE4860048A09E /* BOAPIUserService.m */; };
 		B804205E17BDE8230048A09E /* BOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205D17BDE8230048A09E /* BOUser.m */; };
 		B804206217BDE9B40048A09E /* BOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B804206117BDE9B40048A09E /* BOObject.m */; };
+		B804206617BE7CC20048A09E /* BOBailOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B804206517BE7CC20048A09E /* BOBailOutViewController.m */; };
+		B804206A17BE90860048A09E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B804206817BE90860048A09E /* Localizable.strings */; };
 		B8D29BFD17BD24A60084C1E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFC17BD24A60084C1E6 /* Foundation.framework */; };
 		B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */; };
 		B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C0017BD24A60084C1E6 /* UIKit.framework */; };
@@ -62,6 +64,9 @@
 		B804205D17BDE8230048A09E /* BOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOUser.m; sourceTree = "<group>"; };
 		B804206017BDE9B40048A09E /* BOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOObject.h; sourceTree = "<group>"; };
 		B804206117BDE9B40048A09E /* BOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOObject.m; sourceTree = "<group>"; };
+		B804206417BE7CC20048A09E /* BOBailOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOBailOutViewController.h; sourceTree = "<group>"; };
+		B804206517BE7CC20048A09E /* BOBailOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOBailOutViewController.m; sourceTree = "<group>"; };
+		B804206917BE90860048A09E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B8D29BF917BD24A60084C1E6 /* BailOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BailOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFC17BD24A60084C1E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,6 +207,15 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		B804206317BE7CB20048A09E /* Bail Out */ = {
+			isa = PBXGroup;
+			children = (
+				B804206417BE7CC20048A09E /* BOBailOutViewController.h */,
+				B804206517BE7CC20048A09E /* BOBailOutViewController.m */,
+			);
+			name = "Bail Out";
+			sourceTree = "<group>";
+		};
 		B8D29BF017BD24A60084C1E6 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +262,7 @@
 		B8D29C0317BD24A60084C1E6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B804206817BE90860048A09E /* Localizable.strings */,
 				B8D29C0417BD24A60084C1E6 /* BailOut-Info.plist */,
 				B8D29C0517BD24A60084C1E6 /* InfoPlist.strings */,
 				B8D29C0817BD24A60084C1E6 /* main.m */,
@@ -320,6 +335,7 @@
 		B8D29C3617BD29700084C1E6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B804206317BE7CB20048A09E /* Bail Out */,
 				B8D29C5417BD2D940084C1E6 /* Root */,
 			);
 			name = Controllers;
@@ -536,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8D29C1517BD24A70084C1E6 /* Images.xcassets in Resources */,
+				B804206A17BE90860048A09E /* Localizable.strings in Resources */,
 				B8D29C0717BD24A60084C1E6 /* InfoPlist.strings in Resources */,
 				B8D29C1017BD24A70084C1E6 /* Main.storyboard in Resources */,
 			);
@@ -560,6 +577,7 @@
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
 				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
 				B804205E17BDE8230048A09E /* BOUser.m in Sources */,
+				B804206617BE7CC20048A09E /* BOBailOutViewController.m in Sources */,
 				B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */,
 				B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
@@ -595,6 +613,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B804206817BE90860048A09E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B804206917BE90860048A09E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B8D29C0517BD24A60084C1E6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

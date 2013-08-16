@@ -7,32 +7,100 @@
 //
 
 #import "BORootNavigationController.h"
+#import "BOKeychainService.h"
 
-@interface BORootNavigationController ()
+@interface BORootNavigationController () {
+    BOOL _needsSignIn;
+}
 
 @end
 
 @implementation BORootNavigationController
 
+#pragma mark - Initialization
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self _rootCommonInit];
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [self _rootCommonInit];
     }
     return self;
 }
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self _rootCommonInit];
+    }
+    return self;
+}
+
+- (void)_rootCommonInit
+{
+    _needsSignIn = ![[BOKeychainService sharedInstance] hasAuth];
+}
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // sign in notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_handleSignInNotification:)
+                                                 name:BOSignInNotificationKey
+                                               object:nil];
+    
+    // sign out notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_handleSignOutNotification:)
+                                                 name:BOSignOutNotificationKey
+                                               object:nil];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidAppear:animated];
+    
+    if (_needsSignIn) {
+        [self presentViewController:[self _welcomeNavigationController] animated:NO completion:nil];
+    }
+}
+
+// instantiates the welcome nav controller form the Main storyboard
+- (UINavigationController *)_welcomeNavigationController
+{
+    UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *welcomeNav = [mainBoard instantiateViewControllerWithIdentifier:@"Welcome Navigation Controller"];
+    return welcomeNav;
+}
+
+- (void)_handleSignInNotification:(NSNotification *)notification
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)_handleSignOutNotification:(NSNotification *)notification
+{
+    [self presentViewController:[self _welcomeNavigationController] animated:YES completion:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:BOSignInNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:BOSignOutNotificationKey object:nil];
 }
 
 @end

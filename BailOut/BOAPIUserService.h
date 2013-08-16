@@ -29,6 +29,11 @@
 - (void)verifyPhoneNumber:(NSString *)phoneNumber withCode:(NSString *)code onCompletion:(BOAPIBooleanBlock)complete;
 
 /**
+ * Signs out a user and resets the keychain
+ */
+- (void)signOut:(BOAPIBooleanBlock)complete;
+
+/**
  * Shared instance
  */
 + (instancetype)sharedInstance;
