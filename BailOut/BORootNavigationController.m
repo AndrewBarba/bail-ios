@@ -7,8 +7,6 @@
 //
 
 #import "BORootNavigationController.h"
-#import "BOKeychainService.h"
-#import "BOAPIRootService.h"
 
 @interface BORootNavigationController ()
 
@@ -29,10 +27,6 @@
 {
     [super viewDidLoad];
     
-    [[BOAPIRootService sharedInstance] fetchRoot:^(NSDictionary *dict, NSError *error){
-        NSLog(@"%@",dict);
-    }];
-
 }
 
 - (void)didReceiveMemoryWarning

@@ -52,68 +52,72 @@
 
 - (void)performRequest:(NSString *)verb toURL:(NSURL *)url withData:(id)data onCompletion:(ABHTTPRequestBlock)complete
 {
-    // add query params
-    if ([verb isEqualToString:ABHTTP_METHOD_GET] && data) {
-        url = [ABHTTPClient addQueryStringToUrl:url params:data];
-    }
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
-                                                                cachePolicy:NSURLCacheStorageAllowedInMemoryOnly
-                                                            timeoutInterval:ABHTTP_CLIENT_DEFAULT_TIMEOUT];
-    [request setHTTPMethod:verb];
-    [request setHTTPShouldUsePipelining:YES];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    if (![verb isEqualToString:ABHTTP_METHOD_GET] && data) { // set request body for non GET requests
-        NSError *parseError;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[data copy]
-                                                           options:0
-                                                             error:&parseError];
-        if (parseError) {
-            if (complete) {
-                complete(nil, ABHTTPRequestParseError, parseError);
-            }
-        } else {
-            [request setHTTPBody:jsonData];
+    ABDispatchBackground(^{
+        NSURL *requestURL = [url copy];
+        
+        // add query params
+        if ([verb isEqualToString:ABHTTP_METHOD_GET] && data) {
+            requestURL = [ABHTTPClient addQueryStringToUrl:requestURL params:data];
         }
-    }
-    
-    // Setup background queue
-    NSOperationQueue *requestQueue = [[NSOperationQueue alloc] init];
-    
-    // Copy the completion block
-    __block ABHTTPRequestBlock copyCompletion = [complete copy];
-    
-#if ABHTTP_CLIENT_DEBUG
-    NSLog(@"HTTP Client: %@",[url absoluteString]);
-#endif
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:requestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        ABHTTPStatusCode statusCode = [httpResponse statusCode];
-        if (error) {
-            copyCompletion(nil, statusCode, error);
-        } else if (statusCode >= 400) {
-            NSError *requestError = [[NSError alloc] initWithDomain:@"HTTPClient" code:statusCode userInfo:nil];
-            copyCompletion(nil, statusCode, requestError);
-        } else {
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestURL
+                                                                    cachePolicy:NSURLCacheStorageAllowedInMemoryOnly
+                                                                timeoutInterval:ABHTTP_CLIENT_DEFAULT_TIMEOUT];
+        [request setHTTPMethod:verb];
+        [request setHTTPShouldUsePipelining:YES];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        if (![verb isEqualToString:ABHTTP_METHOD_GET] && data) { // set request body for non GET requests
             NSError *parseError;
-            id jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                            options:NSJSONReadingMutableContainers
-                                                              error:&parseError];
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[data copy]
+                                                               options:0
+                                                                 error:&parseError];
             if (parseError) {
-                ABDispatchMain(^{
-                    copyCompletion(nil, ABHTTPResponseParseError, parseError);
-                });
+                if (complete) {
+                    complete(nil, ABHTTPRequestParseError, parseError);
+                }
             } else {
-                ABDispatchMain(^{
-                    copyCompletion(jsonObject, statusCode, nil);
-                });
+                [request setHTTPBody:jsonData];
             }
         }
-        ABDispatchMain(^{
-            copyCompletion = nil;
-        });
-    }];
+        
+        // Setup background queue
+        NSOperationQueue *requestQueue = [[NSOperationQueue alloc] init];
+        
+        // Copy the completion block
+        __block ABHTTPRequestBlock copyCompletion = [complete copy];
+        
+#if ABHTTP_CLIENT_DEBUG
+        NSLog(@"HTTP Client: %@",[url absoluteString]);
+#endif
+        
+        [NSURLConnection sendAsynchronousRequest:request queue:requestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            ABHTTPStatusCode statusCode = [httpResponse statusCode];
+            if (error) {
+                copyCompletion(nil, statusCode, error);
+            } else if (statusCode >= 400) {
+                NSError *requestError = [[NSError alloc] initWithDomain:@"HTTPClient" code:statusCode userInfo:nil];
+                copyCompletion(nil, statusCode, requestError);
+            } else {
+                NSError *parseError;
+                id jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                options:NSJSONReadingMutableContainers
+                                                                  error:&parseError];
+                if (parseError) {
+                    ABDispatchMain(^{
+                        copyCompletion(nil, ABHTTPResponseParseError, parseError);
+                    });
+                } else {
+                    ABDispatchMain(^{
+                        copyCompletion(jsonObject, statusCode, nil);
+                    });
+                }
+            }
+            ABDispatchMain(^{
+                copyCompletion = nil;
+            });
+        }];
+    });
 }
 
 /*********** HELPERS **********/
