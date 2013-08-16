@@ -10,6 +10,8 @@
 		B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */ = {isa = PBXBuildFile; fileRef = B804204D17BDDE4F0048A09E /* BOAPIBailService.m */; };
 		B804205617BDE01F0048A09E /* ABDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205517BDE01F0048A09E /* ABDispatch.m */; };
 		B804205917BDE4860048A09E /* BOAPIUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205817BDE4860048A09E /* BOAPIUserService.m */; };
+		B804205E17BDE8230048A09E /* BOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B804205D17BDE8230048A09E /* BOUser.m */; };
+		B804206217BDE9B40048A09E /* BOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B804206117BDE9B40048A09E /* BOObject.m */; };
 		B8D29BFD17BD24A60084C1E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFC17BD24A60084C1E6 /* Foundation.framework */; };
 		B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */; };
 		B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C0017BD24A60084C1E6 /* UIKit.framework */; };
@@ -56,6 +58,10 @@
 		B804205517BDE01F0048A09E /* ABDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDispatch.m; sourceTree = "<group>"; };
 		B804205717BDE4860048A09E /* BOAPIUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOAPIUserService.h; sourceTree = "<group>"; };
 		B804205817BDE4860048A09E /* BOAPIUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOAPIUserService.m; sourceTree = "<group>"; };
+		B804205C17BDE8230048A09E /* BOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOUser.h; sourceTree = "<group>"; };
+		B804205D17BDE8230048A09E /* BOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOUser.m; sourceTree = "<group>"; };
+		B804206017BDE9B40048A09E /* BOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOObject.h; sourceTree = "<group>"; };
+		B804206117BDE9B40048A09E /* BOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOObject.m; sourceTree = "<group>"; };
 		B8D29BF917BD24A60084C1E6 /* BailOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BailOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFC17BD24A60084C1E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -169,6 +175,33 @@
 			name = Concurrency;
 			sourceTree = "<group>";
 		};
+		B804205A17BDE80B0048A09E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B804205F17BDE9A50048A09E /* Base */,
+				B804205B17BDE8170048A09E /* User */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		B804205B17BDE8170048A09E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B804205C17BDE8230048A09E /* BOUser.h */,
+				B804205D17BDE8230048A09E /* BOUser.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		B804205F17BDE9A50048A09E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B804206017BDE9B40048A09E /* BOObject.h */,
+				B804206117BDE9B40048A09E /* BOObject.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		B8D29BF017BD24A60084C1E6 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +279,7 @@
 			children = (
 				B8D29C3217BD29180084C1E6 /* BOConstants.h */,
 				B8D29C6A17BD502D0084C1E6 /* Categories */,
+				B804205A17BDE80B0048A09E /* Data */,
 				B8D29C3317BD293C0084C1E6 /* Delegate */,
 				B8D29C4117BD2A760084C1E6 /* Services */,
 				B8D29C3817BD29A50084C1E6 /* ThirdParty */,
@@ -525,11 +559,13 @@
 				B804205617BDE01F0048A09E /* ABDispatch.m in Sources */,
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
 				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
+				B804205E17BDE8230048A09E /* BOUser.m in Sources */,
 				B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */,
 				B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
 				B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */,
 				B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */,
+				B804206217BDE9B40048A09E /* BOObject.m in Sources */,
 				B8D29C5717BD2DAE0084C1E6 /* BORootNavigationController.m in Sources */,
 				B8D29C7117BD57AB0084C1E6 /* BOAPI.m in Sources */,
 				B804205917BDE4860048A09E /* BOAPIUserService.m in Sources */,

@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BOAPI.h"
 
 @interface BOAPIUserService : NSObject
+
+/**
+ * Fetches the current user
+ * returns 401 if auth token is not valid
+ */
+- (void)fetchCurrentUser:(BOAPIRequestBlock)complete;
 
 /**
  * Shared instance

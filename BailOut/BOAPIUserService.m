@@ -7,8 +7,23 @@
 //
 
 #import "BOAPIUserService.h"
+#import "BOUser.h"
 
 @implementation BOAPIUserService
+
+#pragma mark - Current User
+
+- (void)fetchCurrentUser:(BOAPIRequestBlock)complete
+{
+    [[BOAPI sharedClient] GET:BOAPI_ENDPOINT_USER withData:nil onCompletion:^(NSDictionary *data, ABHTTPStatusCode statusCode, NSError *error){
+        if (statusCode == ABHTTPSuccessfulOK) {
+            BOUser *user = [[BOUser alloc] initWithAPIDict:data];
+            if (complete) complete(user, nil);
+        } else {
+            if (complete) complete(nil, error);
+        }
+    }];
+}
 
 #pragma mark - Initialization
 

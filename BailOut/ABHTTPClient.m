@@ -92,6 +92,9 @@
         ABHTTPStatusCode statusCode = [httpResponse statusCode];
         if (error) {
             copyCompletion(nil, statusCode, error);
+        } else if (statusCode >= 400) {
+            NSError *requestError = [[NSError alloc] initWithDomain:@"HTTPClient" code:statusCode userInfo:nil];
+            copyCompletion(nil, statusCode, requestError);
         } else {
             NSError *parseError;
             id jsonObject = [NSJSONSerialization JSONObjectWithData:data
