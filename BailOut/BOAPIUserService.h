@@ -18,6 +18,17 @@
 - (void)fetchCurrentUser:(BOAPIRequestBlock)complete;
 
 /**
+ * Initiates a text message to the given number so user can verify phone number
+ */
+- (void)registerPhoneNumber:(NSString *)phoneNumber onCompletion:(BOAPIBooleanBlock)complete;
+
+/**
+ * Verifies a phone number with the given code
+ * Automatically stores auth token
+ */
+- (void)verifyPhoneNumber:(NSString *)phoneNumber withCode:(NSString *)code onCompletion:(BOAPIBooleanBlock)complete;
+
+/**
  * Shared instance
  */
 + (instancetype)sharedInstance;

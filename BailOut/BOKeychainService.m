@@ -24,8 +24,13 @@
 - (void)setPhoneNumber:(NSString *)phoneNumber
           forAuthToken:(NSString *)authToken
 {
-    [_keychainItem setObject:phoneNumber forKey:(__bridge id)kSecAttrAccount];
-    [_keychainItem setObject:authToken forKey:(__bridge id)kSecValueData];
+    if (phoneNumber) {
+        [_keychainItem setObject:phoneNumber forKey:(__bridge id)kSecAttrAccount];
+    }
+    
+    if (authToken) {
+        [_keychainItem setObject:authToken forKey:(__bridge id)kSecValueData];
+    }
 }
 
 #pragma mark - Getter

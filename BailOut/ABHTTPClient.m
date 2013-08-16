@@ -65,7 +65,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     if (![verb isEqualToString:ABHTTP_METHOD_GET] && data) { // set request body for non GET requests
         NSError *parseError;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[data copy]
                                                            options:0
                                                              error:&parseError];
         if (parseError) {

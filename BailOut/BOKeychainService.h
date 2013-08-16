@@ -14,6 +14,7 @@
 
 /**
  * Stores phone number and password
+ * Passing nil simply ignores setter. Use reset keychain to clear data
  */
 - (void)setPhoneNumber:(NSString *)phoneNumber
           forAuthToken:(NSString *)authToken;
