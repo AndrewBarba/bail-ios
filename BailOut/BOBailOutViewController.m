@@ -22,7 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    self.title = NSLocalizedString(@"Bail Me Out", nil);
 }
 
 #pragma mark - Actions
@@ -31,16 +32,21 @@
 {
     [self _startLoading];
     [[BOAPIBailService sharedInstance] bailMeOut:0 onCompletion:^(BOOL success, NSError *error){
-        [self _endLoading];
         if (success) {
             [self _prepareForCall];
+            ABDispatchAfter(3.0, ^{
+                [self _endLoading];
+            });
+        } else {
+            [[BOAPIUserService sharedInstance] signOut:nil];
+            [self _endLoading];
         }
-    }];
+    }];    
 }
 
 - (IBAction)_handeSettingsTapped:(id)sender
 {
-    [[[UIActionSheet alloc] initWithTitle:@"Settings"
+    [[[UIActionSheet alloc] initWithTitle:nil
                                  delegate:self
                         cancelButtonTitle:@"Cancel"
                    destructiveButtonTitle:nil

@@ -14,6 +14,8 @@
 		B804206217BDE9B40048A09E /* BOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B804206117BDE9B40048A09E /* BOObject.m */; };
 		B804206617BE7CC20048A09E /* BOBailOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B804206517BE7CC20048A09E /* BOBailOutViewController.m */; };
 		B804206A17BE90860048A09E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B804206817BE90860048A09E /* Localizable.strings */; };
+		B8ACFBFF17BEB99A000B341B /* BORegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ACFBFE17BEB99A000B341B /* BORegistrationViewController.m */; };
+		B8ACFC0317BEC0B7000B341B /* BOVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ACFC0217BEC0B7000B341B /* BOVerifyViewController.m */; };
 		B8D29BFD17BD24A60084C1E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFC17BD24A60084C1E6 /* Foundation.framework */; };
 		B8D29BFF17BD24A60084C1E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */; };
 		B8D29C0117BD24A60084C1E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D29C0017BD24A60084C1E6 /* UIKit.framework */; };
@@ -67,7 +69,11 @@
 		B804206417BE7CC20048A09E /* BOBailOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOBailOutViewController.h; sourceTree = "<group>"; };
 		B804206517BE7CC20048A09E /* BOBailOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOBailOutViewController.m; sourceTree = "<group>"; };
 		B804206917BE90860048A09E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B8D29BF917BD24A60084C1E6 /* BailOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BailOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8ACFBFD17BEB99A000B341B /* BORegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BORegistrationViewController.h; sourceTree = "<group>"; };
+		B8ACFBFE17BEB99A000B341B /* BORegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BORegistrationViewController.m; sourceTree = "<group>"; };
+		B8ACFC0117BEC0B7000B341B /* BOVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOVerifyViewController.h; sourceTree = "<group>"; };
+		B8ACFC0217BEC0B7000B341B /* BOVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOVerifyViewController.m; sourceTree = "<group>"; };
+		B8D29BF917BD24A60084C1E6 /* Bail Me Out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bail Me Out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFC17BD24A60084C1E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8D29BFE17BD24A60084C1E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B8D29C0017BD24A60084C1E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -207,13 +213,31 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
-		B804206317BE7CB20048A09E /* Bail Out */ = {
+		B804206317BE7CB20048A09E /* Bail Out Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B804206417BE7CC20048A09E /* BOBailOutViewController.h */,
 				B804206517BE7CC20048A09E /* BOBailOutViewController.m */,
 			);
-			name = "Bail Out";
+			name = "Bail Out Controller";
+			sourceTree = "<group>";
+		};
+		B8ACFBFC17BEB987000B341B /* Register Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8ACFBFD17BEB99A000B341B /* BORegistrationViewController.h */,
+				B8ACFBFE17BEB99A000B341B /* BORegistrationViewController.m */,
+			);
+			name = "Register Controller";
+			sourceTree = "<group>";
+		};
+		B8ACFC0017BEC094000B341B /* Verify Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8ACFC0117BEC0B7000B341B /* BOVerifyViewController.h */,
+				B8ACFC0217BEC0B7000B341B /* BOVerifyViewController.m */,
+			);
+			name = "Verify Controller";
 			sourceTree = "<group>";
 		};
 		B8D29BF017BD24A60084C1E6 = {
@@ -229,7 +253,7 @@
 		B8D29BFA17BD24A60084C1E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8D29BF917BD24A60084C1E6 /* BailOut.app */,
+				B8D29BF917BD24A60084C1E6 /* Bail Me Out.app */,
 				B8D29C1A17BD24A70084C1E6 /* BailOutTests.xctest */,
 			);
 			name = Products;
@@ -335,8 +359,10 @@
 		B8D29C3617BD29700084C1E6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B804206317BE7CB20048A09E /* Bail Out */,
-				B8D29C5417BD2D940084C1E6 /* Root */,
+				B8ACFC0017BEC094000B341B /* Verify Controller */,
+				B8ACFBFC17BEB987000B341B /* Register Controller */,
+				B804206317BE7CB20048A09E /* Bail Out Controller */,
+				B8D29C5417BD2D940084C1E6 /* Root Controller */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -399,13 +425,13 @@
 			name = "Base Controllers";
 			sourceTree = "<group>";
 		};
-		B8D29C5417BD2D940084C1E6 /* Root */ = {
+		B8D29C5417BD2D940084C1E6 /* Root Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B8D29C5517BD2DAE0084C1E6 /* BORootNavigationController.h */,
 				B8D29C5617BD2DAE0084C1E6 /* BORootNavigationController.m */,
 			);
-			name = Root;
+			name = "Root Controller";
 			sourceTree = "<group>";
 		};
 		B8D29C5C17BD30A60084C1E6 /* Keychain */ = {
@@ -483,7 +509,7 @@
 			);
 			name = BailOut;
 			productName = BailOut;
-			productReference = B8D29BF917BD24A60084C1E6 /* BailOut.app */;
+			productReference = B8D29BF917BD24A60084C1E6 /* Bail Me Out.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B8D29C1917BD24A70084C1E6 /* BailOutTests */ = {
@@ -577,9 +603,11 @@
 				B8D29C0917BD24A60084C1E6 /* main.m in Sources */,
 				B8D29C5017BD2D250084C1E6 /* BOViewController.m in Sources */,
 				B804205E17BDE8230048A09E /* BOUser.m in Sources */,
+				B8ACFBFF17BEB99A000B341B /* BORegistrationViewController.m in Sources */,
 				B804206617BE7CC20048A09E /* BOBailOutViewController.m in Sources */,
 				B8D29C6D17BD50450084C1E6 /* NSString+BO.m in Sources */,
 				B804204E17BDDE4F0048A09E /* BOAPIBailService.m in Sources */,
+				B8ACFC0317BEC0B7000B341B /* BOVerifyViewController.m in Sources */,
 				B8D29C0D17BD24A70084C1E6 /* BOAppDelegate.m in Sources */,
 				B8D29C5F17BD30D10084C1E6 /* BOKeychainService.m in Sources */,
 				B8D29C5317BD2D690084C1E6 /* BONavigationController.m in Sources */,
@@ -730,7 +758,8 @@
 					"$(inherited)",
 					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bail Me Out";
+				PROVISIONING_PROFILE = "C95CD5B7-B26D-430B-9BBC-2F830530FD42";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -741,7 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BailOut/BailOut-Prefix.pch";
 				INFOPLIST_FILE = "BailOut/BailOut-Info.plist";
@@ -750,7 +779,8 @@
 					"$(inherited)",
 					"$(USER_APPS_DIR)/BailOut/bail-ios/BailOut/GA",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bail Me Out";
+				PROVISIONING_PROFILE = "FE0645C9-FAC7-4544-9763-D4CCBB413986";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

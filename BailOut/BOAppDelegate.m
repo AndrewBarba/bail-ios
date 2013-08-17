@@ -17,6 +17,10 @@
     
     [self _loadServices];
     
+    if ([self.window respondsToSelector:@selector(setTintColor:)]) {
+        [self.window setTintColor:[UIColor orangeColor]];
+    }
+    
     return YES;
 }
 

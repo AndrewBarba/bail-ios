@@ -73,7 +73,10 @@
                                                                  error:&parseError];
             if (parseError) {
                 if (complete) {
-                    complete(nil, ABHTTPRequestParseError, parseError);
+                    ABDispatchMain(^{
+                        complete(nil, ABHTTPRequestParseError, parseError);
+                    });
+                    return;
                 }
             } else {
                 [request setHTTPBody:jsonData];
@@ -94,10 +97,14 @@
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             ABHTTPStatusCode statusCode = [httpResponse statusCode];
             if (error) {
-                copyCompletion(nil, statusCode, error);
+                ABDispatchMain(^{
+                    if (copyCompletion) copyCompletion(nil, statusCode, error);
+                });
             } else if (statusCode >= 400) {
                 NSError *requestError = [[NSError alloc] initWithDomain:@"HTTPClient" code:statusCode userInfo:nil];
-                copyCompletion(nil, statusCode, requestError);
+                ABDispatchMain(^{
+                    if (copyCompletion) copyCompletion(nil, statusCode, requestError);
+                });
             } else {
                 NSError *parseError;
                 id jsonObject = [NSJSONSerialization JSONObjectWithData:data
@@ -105,11 +112,11 @@
                                                                   error:&parseError];
                 if (parseError) {
                     ABDispatchMain(^{
-                        copyCompletion(nil, ABHTTPResponseParseError, parseError);
+                        if (copyCompletion) copyCompletion(nil, ABHTTPResponseParseError, parseError);
                     });
                 } else {
                     ABDispatchMain(^{
-                        copyCompletion(jsonObject, statusCode, nil);
+                        if (copyCompletion) copyCompletion(jsonObject, statusCode, nil);
                     });
                 }
             }

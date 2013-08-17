@@ -37,7 +37,6 @@
                       withData:data
                   onCompletion:^(NSDictionary *data, ABHTTPStatusCode statusCode, NSError *error){
                       if (statusCode == ABHTTPSuccessfulOK) {
-                          
                           // reset the keychain and hang on to phone number
                           [[BOKeychainService sharedInstance] resetKeychain];
                           [[BOKeychainService sharedInstance] setPhoneNumber:phoneNumber forAuthToken:nil];

@@ -9,9 +9,7 @@
 #import "BORootNavigationController.h"
 #import "BOKeychainService.h"
 
-@interface BORootNavigationController () {
-    BOOL _needsSignIn;
-}
+@interface BORootNavigationController ()
 
 @end
 
@@ -48,7 +46,7 @@
 
 - (void)_rootCommonInit
 {
-    _needsSignIn = ![[BOKeychainService sharedInstance] hasAuth];
+    // common init
 }
 
 #pragma mark - Lifecycle
@@ -74,8 +72,8 @@
 {
     [super viewDidAppear:animated];
     
-    if (_needsSignIn) {
-        [self presentViewController:[self _welcomeNavigationController] animated:NO completion:nil];
+    if (![[BOKeychainService sharedInstance] hasAuth]) {
+        [self presentViewController:[self _welcomeNavigationController] animated:YES completion:nil];
     }
 }
 
