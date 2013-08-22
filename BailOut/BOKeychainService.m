@@ -88,8 +88,7 @@
 + (instancetype)sharedInstance
 {
     static BOKeychainService *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    AB_DISPATCH_ONCE(^{
         sharedInstance = [[self alloc] _initPrivateInstance];
     });
     return sharedInstance;

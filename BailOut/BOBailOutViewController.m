@@ -34,9 +34,7 @@
     [[BOAPIBailService sharedInstance] bailMeOut:0 onCompletion:^(BOOL success, NSError *error){
         if (success) {
             [self _prepareForCall];
-            ABDispatchAfter(3.0, ^{
-                [self _endLoading];
-            });
+            [self _endLoading];
         } else {
             [[BOAPIUserService sharedInstance] signOut:nil];
             [self _endLoading];

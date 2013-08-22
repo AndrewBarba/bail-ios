@@ -8,11 +8,65 @@
 
 #import "BOViewController.h"
 
-@interface BOViewController ()
+@interface BOViewController () {
+    BOOL _inited;
+}
 
 @end
 
 @implementation BOViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self boCommonInit];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self boCommonInit];
+    }
+    return self;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self boCommonInit];
+    }
+    return self;
+}
+
+- (void)boCommonInit
+{
+    if (_inited) return;
+    _inited = YES;
+    
+    [self registerForNotifictions];
+}
+
+- (void)dealloc
+{
+    [self unregisterForNotifications];
+}
+
+#pragma mark - Notifications
+
+- (void)registerForNotifictions
+{
+    // override
+}
+
+- (void)unregisterForNotifications
+{
+    // override
+}
 
 - (void)setTitle:(NSString *)title
 {

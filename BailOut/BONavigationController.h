@@ -10,4 +10,21 @@
 
 @interface BONavigationController : UINavigationController
 
+/**
+ * Common init that will be called whether initialized from nib, sotryboard or manually
+ */
+- (void)boCommonInit;
+
+/**
+ * Override method to for subscribing to nofifications
+ * Guarenteed to only be called once
+ */
+- (void)registerForNotifictions;
+
+/**
+ * Override methods for unregistering notifications. 
+ * Called in dealloc
+ */
+- (void)unregisterForNotifications;
+
 @end

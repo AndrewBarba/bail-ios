@@ -28,6 +28,24 @@
 {
     [BOTrackingService sharedTracker];
 }
+
+#pragma mark - Handle URL
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSString *host = [url host];
+    if ([host isEqualToString:@"verify"]) {
+        NSArray *parts = [[url path] componentsSeparatedByString:@"/"];
+        if (parts.count > 1) {
+            NSString *code = parts[1];
+            ABDispatchAfter(0.5, ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:BOAppOpenedWithVerifyCodeNotificationKey
+                                                                    object:code];
+            });
+        }        
+    }
+    return YES;
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -8,31 +8,64 @@
 
 #import "BONavigationController.h"
 
-@interface BONavigationController ()
+@interface BONavigationController () {
+    BOOL _inited;
+}
 
 @end
 
 @implementation BONavigationController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self boCommonInit];
     }
     return self;
 }
 
-- (void)viewDidLoad
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self boCommonInit];
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning
+- (id)init
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self = [super init];
+    if (self) {
+        [self boCommonInit];
+    }
+    return self;
+}
+
+- (void)boCommonInit
+{
+    if (_inited) return;
+    _inited = YES;
+    
+    [self registerForNotifictions];
+}
+
+- (void)dealloc
+{
+    [self unregisterForNotifications];
+}
+
+#pragma mark - Notifications
+
+- (void)registerForNotifictions
+{
+    // override
+}
+
+- (void)unregisterForNotifications
+{
+    // override
 }
 
 @end

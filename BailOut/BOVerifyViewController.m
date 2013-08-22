@@ -31,6 +31,13 @@
 {
     [super viewWillAppear:animated];
     [self _endLoading];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     [self.verifyTextField becomeFirstResponder];
 }
 
@@ -41,20 +48,43 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark - Notifications
+
+- (void)registerForNotifictions
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_handleAppOpenedWithVerifyCodeNotification:)
+                                                 name:BOAppOpenedWithVerifyCodeNotificationKey
+                                               object:nil];
+}
+
+- (void)unregisterForNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:BOAppOpenedWithVerifyCodeNotificationKey
+                                                  object:nil];
+}
+
 #pragma mark - Actions
 
 - (IBAction)_handleVerifyTapped:(id)sender
 {
-    [self _attemptVerifyPhoneNumber];
+    [self _attemptVerifyPhoneNumber:self.verifyTextField.text];
+}
+
+- (void)_handleAppOpenedWithVerifyCodeNotification:(NSNotification *)notification
+{
+    NSString *code = [notification object];
+    [self.verifyTextField setText:code];
+    [self _attemptVerifyPhoneNumber:code];
 }
 
 #pragma mark - Verify
 
-- (void)_attemptVerifyPhoneNumber
+- (void)_attemptVerifyPhoneNumber:(NSString *)code
 {
     [self _startLoading];
     
-    NSString *code = self.verifyTextField.text;
     NSString *phoneNumber = [[BOKeychainService sharedInstance] phoneNumber];
     
     [[BOAPIUserService sharedInstance] verifyPhoneNumber:phoneNumber withCode:code onCompletion:^(BOOL success, NSError *error){

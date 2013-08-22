@@ -25,4 +25,10 @@ void ABDispatchBackground(void (^block)());
  */
 void ABDispatchAfter(float after, void (^block)());
 
+/**
+ * Macro used for running a block only once. 
+ * Must use macro so the static token is dynamically compiled
+ */
+#define AB_DISPATCH_ONCE(block) static dispatch_once_t onceToken; dispatch_once(&onceToken, ^{ if (block) block(); });
+
 @end

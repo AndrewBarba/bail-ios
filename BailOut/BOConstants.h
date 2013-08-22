@@ -18,8 +18,10 @@
 /**
  * NSNotifications
  */
-#define BOSignInNotificationKey @"BOSignInNotificationKey"
-#define BOSignOutNotificationKey @"BOSignOutNotificationKey"
+#define BOSignInNotificationKey @"BOSignInNotification"
+#define BOSignOutNotificationKey @"BOSignOutNotification"
+
+#define BOAppOpenedWithVerifyCodeNotificationKey @"BOAppOpenedWithVerifyCodeNotification"
 
 
 #endif
